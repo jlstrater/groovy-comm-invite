@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Apache Groovy Community</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <header>
+      <div class="brand"></div>
+    </header>
+    <div class="container" id="main">
+      <p>For an invite to the Groovy Community Slack, please email <a href="mailto:groovycommunityslack@gmail.com">groovycommunityslack@gmail.com</a>
+        or contact someone already in the group to ask for an invite.</p>
+          <p>
+            By emailing us for an invite, you agree to the
+              <a href="/coc.html" target="_blank">Code of Conduct</a>
+            and Apache Groovy Community Slack <a href="/process.html" target="_blank">Processes</a>. Please read carefully
+            before submitting.
+          </p>
+        <p style="margin-top:50px;">Please note: This community is a privately run community and is not affiliated with the official Apache Groovy project.</p>
+    </div>
+
+<script type="text/javascript">
+var clippyText = document.querySelector("#clippy-text");
+var form = document.querySelector("form");
+var handler = form.submit;
+var required_fields = ['name', 'email', 'about', 'coc', 'question'];
+
+function clearFieldErr (container) {
+  container.style.border = "";
+}
+
+function fieldErr (container) {
+  container.style.border = "2px solid #f00";
+  container.style.borderRadius = "6px";
+}
+
+function formValidator() {
+  var err = false;
+  for (idx in required_fields) {
+    var field = required_fields[idx];
+    var elem = document.querySelector('#' + field);
+    var container = document.querySelector('#' + field + '-container');
+    if (elem.type === "text" || elem.type === "textarea") {
+      var val = elem.value ? elem.value.trim() : null;
+      if (val) {
+        clearFieldErr(container);
+      } else {
+        fieldErr(container);
+        err = true;
+      }
+    } else if (elem.type === "checkbox") {
+      if (elem.checked) {
+        clearFieldErr(container);
+      } else {
+        fieldErr(container);
+        err = true;
+      }
+    }
+  }
+  if (err) {
+    clippyText.innerHTML = "You need to fill out all the required fields";
+  } else {
+    form.submit();
+  }
+}
+
+form.onsubmit = function (e) {
+  e.preventDefault();
+  formValidator();
+  return false;
+};
+</script>
+
+</body>
+</html>
