@@ -16,64 +16,12 @@
         or contact someone already in the group to ask for an invite.</p>
           <p>
             By emailing us for an invite, you agree to the
-              <a href=groovy-comm-invite/coc.html" target="_blank">Code of Conduct</a>
+              <a href="groovy-comm-invite/coc.html" target="_blank">Code of Conduct</a>
             and Apache Groovy Community Slack <a href="groovy-comm-invite/process.html" target="_blank">Processes</a>. Please read carefully
             before submitting.
           </p>
         <p style="margin-top:50px;">Please note: This community is a privately run community and is not affiliated with the official Apache Groovy project.</p>
-    </div>
-
-<script type="text/javascript">
-var clippyText = document.querySelector("#clippy-text");
-var form = document.querySelector("form");
-var handler = form.submit;
-var required_fields = ['name', 'email', 'about', 'coc', 'question'];
-
-function clearFieldErr (container) {
-  container.style.border = "";
-}
-
-function fieldErr (container) {
-  container.style.border = "2px solid #f00";
-  container.style.borderRadius = "6px";
-}
-
-function formValidator() {
-  var err = false;
-  for (idx in required_fields) {
-    var field = required_fields[idx];
-    var elem = document.querySelector('#' + field);
-    var container = document.querySelector('#' + field + '-container');
-    if (elem.type === "text" || elem.type === "textarea") {
-      var val = elem.value ? elem.value.trim() : null;
-      if (val) {
-        clearFieldErr(container);
-      } else {
-        fieldErr(container);
-        err = true;
-      }
-    } else if (elem.type === "checkbox") {
-      if (elem.checked) {
-        clearFieldErr(container);
-      } else {
-        fieldErr(container);
-        err = true;
-      }
-    }
-  }
-  if (err) {
-    clippyText.innerHTML = "You need to fill out all the required fields";
-  } else {
-    form.submit();
-  }
-}
-
-form.onsubmit = function (e) {
-  e.preventDefault();
-  formValidator();
-  return false;
-};
-</script>
+    </div
 
 </body>
 </html>
